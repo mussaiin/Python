@@ -1,0 +1,52 @@
+import os, pickle, dbm
+import string
+
+
+
+def database1():
+    db=dbm.open('file.db', 'c')
+    
+    s='string'
+    d={'key':'val'}
+    file=open('a.txt', 'r')
+    f=file.read()
+
+    db['1']=pickle.dumps(s)
+    db['2']=pickle.dumps(d)
+    db['3']=pickle.dumps(f)
+
+    for k in db:
+        print(pickle.loads(db[k]))
+    db.close()
+    
+def findtxt(way):
+    txt=[]
+    for root, dirs, files in os.walk(way):
+        for file in files:
+            if(file[-4:]=='.txt'):
+                 txt.append(file)
+    for i in txt:
+        print(i)
+        
+def copy():
+    fin = open('text.txt', 'r')
+    fout = open('text1.txt', 'w')
+    for line in fin:
+        fout.write(line)
+    fout.close()
+
+def charcount():
+    fin = open('text.txt', 'r')
+    fout = open('text1.txt', 'w')
+    for line in fin:
+        line = line.strip('\n')
+        fout.write(line+' '+str(len(line))+'\n')
+    fout.close()
+ 
+def file(name):
+    if(os.path.isfile(name)):
+        print("It is a file and it is placed in", os.path.abspath(name))
+    elif(os.path.isdir(name)):
+        print("It is a directory and has these files in it: ", os.listdir(name))
+    elif not(os.path.exists(name)):
+        print("Doesn't exist.")
