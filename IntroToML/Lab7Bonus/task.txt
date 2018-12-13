@@ -1,0 +1,7 @@
+This bonus is 2pts on top of 10pts labs.
+Please read the file, analyze the dataset.
+Your tasks are:
+-Visualize the dataset
+-Apply Supervised ML algorithm (You need to understand whether it is Classification or Regression, you can choose any appropriate algorithm. )
+-Visualize Decision boundary or Prediction Line
+-Calculate accuracy if applicable
